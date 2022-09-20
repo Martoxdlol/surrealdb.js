@@ -16,7 +16,6 @@
     "name": "Tobie Morgan Hitchcock",
     "url": "https://surrealdb.com"
   },
-  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
