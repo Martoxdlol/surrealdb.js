@@ -34,6 +34,10 @@ export default defineConfig([
 				dir: "dist/esm",
 				preserveModules: true,
 				preserveModulesRoot: "src",
+				plugins: [
+					// allows esm users to use named imports from our cjs package
+					rename({ map: (name) => name.replace(/\.js$/, ".mjs") }),
+				],
 			},
 			{
 				dir: "dist/cjs",
@@ -42,10 +46,6 @@ export default defineConfig([
 				interop: "auto",
 				preserveModules: true,
 				preserveModulesRoot: "src",
-				plugins: [
-					// allows cjs users to import cjs files inside our esm package
-					rename({ map: (name) => name.replace(/\.js$/, ".cjs") }),
-				],
 			},
 		],
 	},
